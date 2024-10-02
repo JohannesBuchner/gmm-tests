@@ -63,5 +63,5 @@ def test_single(mean_cov):
     target_mixture = create_gaussian_mixture([mu], [cov], [1.0])
     pypmc_logp = np.array([target_mixture.evaluate(xi) for xi in x])
 
-    assert_allclose(truth_logp, pypmc_logp, atol=1e-2, rtol=1e-2)
+    assert_allclose(truth_logp, pypmc_logp)
 
