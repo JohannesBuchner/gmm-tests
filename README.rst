@@ -10,3 +10,10 @@ https://github.com/scikit-learn/scikit-learn/issues/29989
 
 In contrast, pypmc seems to work fine with relative and absolute
 deviations below 1e-4.
+
+Usage
+------
+
+    $ pytest
+
+You need hypothesis and pytest installed.
