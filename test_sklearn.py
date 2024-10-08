@@ -1,7 +1,6 @@
 import numpy as np
 from numpy import array
 from scipy.stats import multivariate_normal
-from scipy.special import logsumexp
 from numpy.testing import assert_allclose
 from hypothesis import given, strategies as st, example, settings
 from hypothesis.extra.numpy import arrays
@@ -166,6 +165,14 @@ def mean_and_cov(draw):
            [-9.70648636,  6.38935566,  0.40443697, -0.67406172, -0.67405981,
             -8.9305567 , 12.51732134]]),
        array([[0., 0., 0., 0., 0., 0., 0.], [0., 0., 0., 0., 0., 0., 0.]]))
+).via('discovered failure')
+@example(
+    mean_cov=(3,
+        array([0., 0., 0.]),
+        array([[32.00000007, 35.99999993,  8.00000001],
+               [35.99999993, 40.50000006,  8.99999998],
+               [ 8.00000001,  8.99999998,  2.00000008]]),
+        array([[0., 0., 0.], [0., 0., 0.]]))
 ).via('discovered failure')
 def test_single(mean_cov):
     # a askcarl with one component must behave the same as a single gaussian
