@@ -25,6 +25,8 @@ def valid_covariance_matrix(A, min_std=1e-6):
     if (np.diag(A) <= min_std).any():
         return False
 
+    if np.linalg.cond(A) > 100:
+        return False
     try:
         np.linalg.inv(np.linalg.inv(A))
     except np.linalg.LinAlgError:
