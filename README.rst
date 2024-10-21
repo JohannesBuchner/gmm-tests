@@ -17,3 +17,8 @@ Usage
     $ pytest
 
 You need hypothesis and pytest installed.
+
+
+**Resolved!**
+see bug report above.
+
